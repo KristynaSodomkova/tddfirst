@@ -1,7 +1,7 @@
 import unittest
 
 def encrypt(message):
-    encrypted_message = [idx for idx, char in enumerate(message)]
+    encrypted_message = "".join([str(idx) for idx, char in enumerate(message)])
     print(encrypted_message)
     return encrypted_message
 
@@ -23,6 +23,9 @@ class TestEncryption(unittest.TestCase):
 
     def test_differentIO(self):
         self.assertNotIn(self.my_message, encrypt(self.my_message))
+
+    def test_outputType(self):
+        self.assertIsInstance(encrypt(self.my_message), str)
 
 if __name__ == "__main__":
     unittest.main()
